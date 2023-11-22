@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BİR DİVİ BAŞKA BİR DİVE GÖRE KONUMLANDIRMA</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+  
+</head>
+<body>
+    
+    <div id="imagediv">
+    <img id="div1" src="images/resim1.jpg">
+    <i class="bi bi-three-dots"></i>
+    </div>
+
+    <div id="div2">
+        <ul>
+            <li id="li1">Photo 1</li>
+            <li id="li2">Photo 2</li>
+            <li id="li3">Photo 3</li>
+            <li id="li4">Photo 4</li>
+            <li id="li5">Photo 5</li>
+        </ul>
+    </div>
+
+    <script>
+
+        let resimler = ["resim1.jpg","resim2.jpg","resim3.jpg","resim4.jpg","resim5.jpg"];
+
+        $(document).ready(function() {
+            let divheight = 0 ;
+            let divwidth = $("#div1").width();
+            let div1top = $("#div1").offset().top - divheight - 0  ;
+            let div1left = $("#div1").offset().left + divwidth + 5 ;
+            $("#div2").css("left", div1left + "px");
+            $("#div2").css("top", div1top + "px");
+
+            $(".bi").click(function() {
+            $("#div2").toggleClass("open");
+            })
+
+            $("#li1").click(function() {
+            $("#div1").attr("src","images/"+resimler[0]);
+            })
+
+            $("#li2").click(function() {
+            $("#div1").attr("src","images/"+resimler[1]);
+            })
+
+            $("#li3").click(function() {
+            $("#div1").attr("src","images/"+resimler[2]);
+            })
+
+            $("#li4").click(function() {
+            $("#div1").attr("src","images/"+resimler[3]);
+            })
+
+            $("#li5").click(function() {
+            $("#div1").attr("src","images/"+resimler[4]);
+            })
+        });
+    </script>
+</body>
+</html>
